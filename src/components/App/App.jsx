@@ -17,6 +17,12 @@ function App() {
    <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Daily Survey</h1>
+          <nav>
+                <Link to="/admin">Admin</Link>
+                <div>
+                </div>
+                <Link to="/">Survey</Link>
+            </nav>
       </header>
         <Route exact path="/">
             <Feelings />
