@@ -32,4 +32,26 @@ router.post('/', (req, res) => {
 //END POST//
 
 
+//DELETE ROUTE//
+router.delete('/:id', (req, res) => {
+  console.log(req.data);
+  let idToDelete = req.params.id;
+
+  let sqlQuery = `
+    DELETE FROM "feedback"
+      WHERE "id"=$1;        
+  `
+  let sqlValues = [idToDelete];
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(200);
+    })
+    .catch((dbErr) => {
+      console.log( dbErr);
+      res.sendStatus(500);
+    })
+})
+//END DELETE ROUTE//
+
+
 module.exports = router;
